@@ -91,31 +91,25 @@ export default ({ navigation, route }) => {
             leftIcon={<Icon name="phone" type="FontAwesome" />}
             bottomDivider
           />
-          <ListItem
-            title={type !== "Chief" ? "Favourite" : "Food"}
-            leftIcon={
-              <Icon
-                name={type !== "Chief" ? "bookmark" : "hamburger"}
-                type="FontAwesome5"
+          {type !== "Chief" ? (
+              <ListItem
+                  title={"Favourite"}
+                  leftIcon={
+                    <Icon
+                        name={"bookmark"}
+                        type="FontAwesome5"
+                    />
+                  }
+                  bottomDivider
+                  chevron
+                  onPress={() => {
+                      navigation.navigate("Favourite", {
+                        data: state[id - 1],
+                      });
+                  }}
               />
-            }
-            bottomDivider
-            chevron
-            leftIcon={<Icon name="bowl" type="Entypo" />}
-            onPress={() => {
-              if (type === "Chief") {
-                navigation.navigate("FoodDisplayList", {
-                  data: state[id - 1].food,
-                  premission: true,
-                });
-              } else {
-                navigation.navigate("Favourite", {
-                  data: state[id - 1],
-                });
-              }
-            }}
-          />
-          {type == "Chief" ? (
+          ): null}
+          {type === "Chief" ? (
             <ListItem
               title="Recipe"
               bottomDivider

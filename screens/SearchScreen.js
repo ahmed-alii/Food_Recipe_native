@@ -18,7 +18,7 @@ export default function SearchScreen({ navigation }) {
   }, []);
   return (
     <View style={{ flex: 1 }}>
-      <View>
+      <View >
         <SearchBar
           name="Search"
           value={value}

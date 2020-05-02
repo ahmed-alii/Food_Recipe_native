@@ -72,6 +72,5 @@ export default ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 40,
   },
 });

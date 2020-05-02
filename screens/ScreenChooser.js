@@ -30,6 +30,13 @@ export default ScreenChooser = ({ navigation }) => {
     AsyncStorage.getItem("DataKey").then((value) => {
       setLoggedin(JSON.parse(value).LogStatus);
     });
+
+    navigation.addListener("focus", () => {
+      AsyncStorage.getItem("DataKey").then((value) => {
+        setLoggedin(JSON.parse(value).LogStatus);
+      });
+    })
+
   });
   if (loggedIn !== true) {
     return (

@@ -14,62 +14,78 @@ import { AsyncStorage } from "react-native";
 
 export default list = ({ title, result, navigation, del_type }) => {
   const { data1, data2 } = useContext(userlogcontext);
-  console.log(result.length);
   const [id, setid] = useState();
+
   AsyncStorage.getItem("DataKey").then((value) => {
     setid(JSON.parse(value).id);
   });
+
   console.disableYellowBox = true;
   const { delfavchief } = useContext(Context);
-  const filteredResults = result.filter(function(item) {
-    return item != null;
-  });
 
-  return (
-    <View>
-      <Text style={styles.title}>{title}</Text>
-      <ScrollView>
-        {filteredResults.map((item, key) => (
-          <ListItem
-            key={key}
-            leftAvatar={{
-              source: require("../../../assets/images/Chief.jpeg"),
-            }}
-            title={item.name}
-            subtitle={<Text numberOfLines={1}>{item.about}</Text>}
-            bottomDivider
-            rightAvatar={
-              del_type === true ? (
-                <TouchableOpacity
-                  style={{
-                    fontSize: 22,
-                    marginLeft: 50,
-                  }}
-                  onPress={() => {
-                    delfavchief(item.id, id, () => {
-                      navigation.navigate("Profile");
-                    });
-                  }}
-                >
-                  <Icon
-                    name="trash-alt"
-                    style={{ color: "red", fontSize: 32 }}
-                    type="FontAwesome5"
-                  />
-                </TouchableOpacity>
-              ) : null
-            }
-            chevron={true}
-            onPress={() => {
-              navigation.navigate("ChiefProfile", {
-                cid: item.id,
-              });
-            }}
-          />
-        ))}
-      </ScrollView>
-    </View>
-  );
+  if(result) {
+    const filteredResults = result.filter(function(item) {
+      return item != null;
+    });
+
+    return (
+        <View style={{flex: 1}}>
+          <Text style={styles.title}>{title}</Text>
+          <ScrollView style={{flex: 1}}>
+            {filteredResults.map((item, key) => (
+                <ListItem
+                    key={key}
+                    leftAvatar={{
+                      source: require("../../../assets/images/Chief.jpeg"),
+                    }}
+                    title={item.name}
+                    subtitle={<Text numberOfLines={1}>{item.about}</Text>}
+                    bottomDivider
+                    rightAvatar={
+                      del_type === true ? (
+                          <TouchableOpacity
+                              style={{
+                                fontSize: 22,
+                                marginLeft: 50,
+                              }}
+                              onPress={() => {
+                                delfavchief(item.id, id, () => {
+                                  navigation.navigate("Profile");
+                                });
+                              }}
+                          >
+                            <Icon
+                                name="trash-alt"
+                                style={{ color: "red", fontSize: 32 }}
+                                type="FontAwesome5"
+                            />
+                          </TouchableOpacity>
+                      ) : null
+                    }
+                    chevron={true}
+                    onPress={() => {
+                      navigation.navigate("ChiefProfile", {
+                        cid: item.id,
+                      });
+                    }}
+                />
+            ))}
+            <Text style={{marginVertical: 50, textAlign: "center"}}>...</Text>
+          </ScrollView>
+        </View>
+    );
+  }
+  else{
+    return (
+        <View>
+          <Text style={styles.title}>{title}</Text>
+          <ScrollView>
+            <Text style={{textAlign: "center"}}>No Favourites found.</Text>
+          </ScrollView>
+        </View>
+    )
+  }
+
 };
 
 const styles = StyleSheet.create({

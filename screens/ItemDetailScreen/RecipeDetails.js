@@ -1,30 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  Alert,
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import React, {useContext, useEffect, useState} from "react";
+import {ActivityIndicator, Alert, AsyncStorage, Image, ScrollView, StyleSheet, Text, View,} from "react-native";
 
-import { AirbnbRating } from "react-native-elements";
-import {
-  Accordion,
-  Body,
-  Card,
-  CardItem,
-  Icon,
-  Left,
-  Right,
-  Tab,
-  TabHeading,
-  Tabs,
-} from "native-base";
-import { Context } from "../../Context/FoodContext";
-import userlogcontext from "../../connection/userLogContext";
-import { AsyncStorage } from "react-native";
+import {AirbnbRating} from "react-native-elements";
+import {Accordion, Body, Card, CardItem, Icon, Left, Right, Tab, TabHeading, Tabs,} from "native-base";
+import {Context} from "../../Context/FoodContext";
 
 export default ({ navigation, route }) => {
   const selectid = route.params.id;
@@ -58,7 +37,7 @@ export default ({ navigation, route }) => {
   ];
   return (
     <ScrollView style={{ flex: 1 }}>
-      {Ainemate == true ? (
+      {Ainemate === true ? (
         <ActivityIndicator
           color="#0000ff"
           size="large"
@@ -77,14 +56,14 @@ export default ({ navigation, route }) => {
               <Body>
                 <Text style={{ fontSize: 22 }}>{state[selectid - 1].name}</Text>
               </Body>
-              {rdata.type === "Visitor" ? (
+              {rdata && rdata.type === "Visitor" ? (
                 <Right>
                   <Icon
                     name={Iname}
                     type="AntDesign"
                     style={{ color: "red", fontSize: 22 }}
                     onPress={() => {
-                      if (Icheck == false) {
+                      if (Icheck === false) {
                         setIname("heart");
                         setIcheck(true);
                         var data = {
@@ -95,7 +74,7 @@ export default ({ navigation, route }) => {
                           type: "fav_recipe",
                         };
                         putfav(data, () => {
-                          Alert.alert("Recipe Add");
+                          Alert.alert("Favourites 🍱", "Recipe Added 💕");
                         });
                       } else {
                         setIname("hearto");

@@ -21,87 +21,99 @@ export default list = ({ title, result, del_type, navigation }) => {
     setid(JSON.parse(value).id);
     settype(JSON.parse(value).type);
   });
-  const { delfavrec } = useContext(Context);
-  const filteredResults = result.filter(function(item) {
-    return item != null;
-  });
 
-  // console.log("sample from resultlist.js -> ", filteredResults[1]);
+  if (result){
+    const { delfavrec } = useContext(Context);
+    const filteredResults = result.filter(function(item) {
+      return item != null;
+    });
 
-  return (
-    <ScrollView style={{ flex: 1 }}>
-      <Text style={styles.title}>{title}</Text>
-      {filteredResults.map((item, key) => (
-        <Card image={{ uri: item.pic }} key={key}>
-          <View style={styles.row2}>
-            <Text
-              style={{
-                width: "70%",
-                fontWeight: "bold",
-                fontSize: 20,
-                paddingLeft: 20,
-              }}
-            >
-              {item.name}
-            </Text>
-            {del_type === true ? null : (
-              <Text style={{ width: "30%" }}>Views. {item.views}</Text>
-            )}
-            {del_type == true && result !== null ? (
-              <TouchableOpacity
-                style={{
-                  fontSize: 22,
-                  marginLeft: 50,
-                }}
-                onPress={() => {
-                  delfavrec(item.id, id, type, () => {
-                    alert("Recipe Deleted");
-                    navigation.navigate("Profile");
-                  });
-                }}
-              >
-                <Icon
-                  name="trash-alt"
-                  style={{ color: "red", fontSize: 32 }}
-                  type="FontAwesome5"
+
+    return (
+        <ScrollView style={{ flex: 1 }}>
+          <Text style={styles.title}>{title}</Text>
+          {filteredResults.map((item, key) => (
+              <Card image={{ uri: item.pic }} key={key}>
+                <View style={styles.row2}>
+                  <Text
+                      style={{
+                        width: "70%",
+                        fontWeight: "bold",
+                        fontSize: 20,
+                        paddingLeft: 20,
+                      }}
+                  >
+                    {item.name}
+                  </Text>
+                  {del_type === true ? null : (
+                      <Text style={{ width: "30%" }}>Views. {item.views}</Text>
+                  )}
+                  {del_type == true && result !== null ? (
+                      <TouchableOpacity
+                          style={{
+                            fontSize: 22,
+                            marginLeft: 50,
+                          }}
+                          onPress={() => {
+                            delfavrec(item.id, id, type, () => {
+                              alert("Recipe Deleted");
+                              navigation.navigate("Profile");
+                            });
+                          }}
+                      >
+                        <Icon
+                            name="trash-alt"
+                            style={{ color: "red", fontSize: 32 }}
+                            type="FontAwesome5"
+                        />
+                      </TouchableOpacity>
+                  ) : null}
+                </View>
+                {del_type === true ? null : (
+                    <View style={styles.row}>
+                      <View style={styles.col}>
+                        <Text style={{ fontWeight: "bold" }}>Rating</Text>
+                        <Text>{item.rate}</Text>
+                      </View>
+                      <View style={styles.col}>
+                        <Text style={{ fontWeight: "bold" }}>Servings</Text>
+                        <Text>{item.serving}</Text>
+                      </View>
+                      <View style={styles.col}>
+                        <Text style={{ fontWeight: "bold" }}>Time</Text>
+                        <Text>{item.time}</Text>
+                      </View>
+                    </View>
+                )}
+                <Button
+                    buttonStyle={{
+                      borderRadius: 1,
+                      marginLeft: 0,
+                      marginRight: 0,
+                      marginBottom: 0,
+                    }}
+                    title="VIEW RECIPE"
+                    onPress={() => {
+                      navigation.navigate("RecipeDetail", {
+                        id: item.id,
+                      });
+                    }}
                 />
-              </TouchableOpacity>
-            ) : null}
-          </View>
-          {del_type === true ? null : (
-            <View style={styles.row}>
-              <View style={styles.col}>
-                <Text style={{ fontWeight: "bold" }}>Rating</Text>
-                <Text>{item.rate}</Text>
-              </View>
-              <View style={styles.col}>
-                <Text style={{ fontWeight: "bold" }}>Servings</Text>
-                <Text>{item.serving}</Text>
-              </View>
-              <View style={styles.col}>
-                <Text style={{ fontWeight: "bold" }}>Time</Text>
-                <Text>{item.time}</Text>
-              </View>
-            </View>
-          )}
-          <Button
-            buttonStyle={{
-              borderRadius: 1,
-              marginLeft: 0,
-              marginRight: 0,
-              marginBottom: 0,
-            }}
-            title="VIEW RECIPE"
-            onPress={() => {
-              navigation.navigate("RecipeDetail", {
-                id: item.id,
-              });
-            }}
-          />
-        </Card>
-      ))}
-    </ScrollView>
-  );
+              </Card>
+          ))}
+        </ScrollView>
+    );
+  }
+  else{
+    return (
+        <View>
+          <Text style={styles.title}>{title}</Text>
+          <ScrollView>
+            <Text style={{textAlign: "center"}}>No Favourites found.</Text>
+          </ScrollView>
+        </View>
+    )
+  }
 };
 const styles = StyleSheet.create({
   title: {
