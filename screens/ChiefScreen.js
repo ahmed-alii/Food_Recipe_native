@@ -10,6 +10,8 @@ export default function ChiefScreen({navigation}) {
 
   console.log("...ChiefScreen")
   console.log("Animate is -> ", Ainemate)
+  
+  //This File is used to render the chief list that are are registor in API
 
   useEffect(() => {
     if (Ainemate === true ){
