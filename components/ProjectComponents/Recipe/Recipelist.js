@@ -14,6 +14,9 @@ import { AsyncStorage } from "react-native";
 
 export default list = ({ title, result, del_type, navigation }) => {
   console.disableYellowBox = true;
+  
+  //this the constant UI of the displaying the Recipe card as a single item list in HomeScreen SearchScreen CategoryScreen PopularScreen etc 
+  
   const { data1, data2 } = useContext(userlogcontext);
   const [id, setid] = useState();
   const [type, settype] = useState();
