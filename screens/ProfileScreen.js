@@ -14,7 +14,9 @@ const ProfileScreen = ({ navigation }) => {
   const { data1, data2 } = useContext(userlogcontext);
   const [id, setid] = data1;
   const [type, settype] = data2;
-
+ 
+  //This File is used to render the profile of the user/chief
+  
   return (
     <UserContext.Consumer>
       {({ loggedIn, setLoggedin }) => (
