@@ -18,6 +18,9 @@ export default ({ navigation }) => {
   console.disableYellowBox = true;
   const latest = [];
   var temp;
+  
+  //This File is used to render the Popular Recipes based on Reviews on the Popular tab Screen
+  
   useEffect(() => {
     getdata();
     setanimate(true);
