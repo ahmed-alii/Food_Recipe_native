@@ -26,6 +26,9 @@ import "firebase/storage";
 import { AsyncStorage } from "react-native";
 
 export default ({ navigation }) => {
+  
+  //This File is used to Add the New Recipe in the API from the chief
+  
   const { putrecipe } = useContext(Context);
   const [value, setvalue] = useState("");
   const [value2, setvalue2] = useState("");
