@@ -19,6 +19,10 @@ const Stack = createStackNavigator();
 export default App = () => {
   const [loggedIn, setLoggedin] = useState();
   const value = { loggedIn, setLoggedin };
+  //Starting of App
+  //Show the Home Screen with the latest Recipes
+  //Inital Route will be Root consists of 4 BottomTabNavigator (i.e HomeScreen CategoryScreen SearchScreen Profile Available in Navigation Folder )
+  //Provider is used as a connector to provide data from API Folder to it's  children
   return (
     <UserContext.Provider value={value}>
       <UserContext.Consumer>
