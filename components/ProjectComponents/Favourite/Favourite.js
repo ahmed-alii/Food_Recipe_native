@@ -4,6 +4,9 @@ import ResultList from "../Recipe/Recipelist";
 import ChiefList from "../Chief/Cheiflist";
 
 export default ({ navigation, route }) => {
+  
+  //This File is used to render the favourite list of recipe and chief of the user 
+  
   const [Ainemate, setanimate] = useState();
   useEffect(() => {
     setanimate(true);
