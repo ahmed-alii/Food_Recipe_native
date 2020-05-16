@@ -17,6 +17,9 @@ export default ({ navigation }) => {
   const [Ainemate, setanimate] = useState();
   console.disableYellowBox = true;
   const latest = [];
+  
+  //This File is used to render the lastest Recipe added in the API to HomeScreen
+  
   useEffect(() => {
     getdata();
     setanimate(true);
