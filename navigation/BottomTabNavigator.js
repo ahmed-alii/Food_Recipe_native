@@ -13,6 +13,9 @@ const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = "Home";
 
 export default function BottomTabNavigator({ navigation, route }) {
+  
+  //Contain the bottomtab navigator list to show on the App
+  
   navigation.setOptions({
     headerTitle: getHeaderTitle(route),
     headerShown: getHeaderTitle(route) === "Profile" ? false : true,
