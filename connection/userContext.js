@@ -1,4 +1,6 @@
 import React from "react";
+
+//For the checking the Login state
 const UserContext = React.createContext({
   loggedIn: false,
   setLoggedin: () => {},
