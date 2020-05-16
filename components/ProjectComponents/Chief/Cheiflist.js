@@ -16,7 +16,7 @@ export default list = ({ title, result, navigation, del_type }) => {
   const { data1, data2 } = useContext(userlogcontext);
   const [id, setid] = useState();
 
-  //This file is used to render the list of all the present chief in the API
+  //This file is used to render the list of all the present chief in the API and also in the Favourite list
   
   AsyncStorage.getItem("DataKey").then((value) => {
     setid(JSON.parse(value).id);
