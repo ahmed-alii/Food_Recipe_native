@@ -30,6 +30,9 @@ const Details = ({ navigation, route }) => {
   const [Ainemate, setanimate] = useState();
   const { state, getfooddata } = useContext(Context);
   console.disableYellowBox = true;
+  
+  //This File is the UI that contain the detail list of a specific Food
+  
   useEffect(() => {
     getfooddata();
   }, []);
