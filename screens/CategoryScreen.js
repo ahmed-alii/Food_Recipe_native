@@ -7,6 +7,7 @@ export default class CategoryScreen extends Component {
     super(props);
   }
   render() {
+    //This File is used to render a category List to display category Menu
     console.disableYellowBox = true;
     return (
       <View style={{ flex: 1 }}>
