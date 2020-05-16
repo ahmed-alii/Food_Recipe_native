@@ -23,6 +23,9 @@ export default ({ navigation, route }) => {
   const [Ainemate, setanimate] = useState();
   const [id, setid] = useState();
   const [type, settype] = useState();
+  
+  
+  //This File Contain the UI of the Profile Screen for the user/Chief
 
   console.disableYellowBox = true;
   useEffect(() => {
