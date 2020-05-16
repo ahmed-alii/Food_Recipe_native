@@ -8,6 +8,9 @@ import {Context} from "../../Context/FoodContext";
 export default ({ navigation, route }) => {
   const selectid = route.params.id;
   const [rdata, setrdata] = useState();
+  
+  //This File is the UI that contain the detail of the specfic Recipe
+  
   AsyncStorage.getItem("DataKey").then((value) => {
     setrdata(JSON.parse(value));
   });
