@@ -11,6 +11,9 @@ export default ({result, navigation, del_type}) => {
   const [type, settype] = data2;
   const {delfavrec, delfavchief} = useContext(Context);
   console.disableYellowBox = true;
+  
+  //this the constant UI of the displaying the Recipe card as a single item list in HomeScreen SearchScreen CategoryScreen PopularScreen etc 
+  
   if (result === undefined || result === null) {
     return null;
   }
