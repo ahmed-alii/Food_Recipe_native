@@ -23,6 +23,8 @@ function RegisterScreen({ navigation }) {
   const [check2, setcheck2] = useState(false);
   const { putregistrationdata } = useContext(Context);
   const [loading, setLoading] = useState(false);
+  
+  //For the Registration Process 
 
   const pickImage = async () => {
     try {
@@ -51,6 +53,8 @@ function RegisterScreen({ navigation }) {
     return navigation.navigate("Login");
   }
 
+  
+  //Handle the Registration Data
   async function handleOnSignup(actions) {
     let data = {
       name: fullName,
