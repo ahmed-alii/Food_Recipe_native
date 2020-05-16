@@ -17,6 +17,9 @@ import FavouriteScreen from "../components/ProjectComponents/Favourite/Favourite
 const Stack = createStackNavigator();
 
 export default () => {
+  
+//Contain the List of all the navigation screen from profile tab button 
+  
   return (
     <Stack.Navigator initialRouteName="Profile">
       <Stack.Screen name="Profile" component={ProfileScreen} />
