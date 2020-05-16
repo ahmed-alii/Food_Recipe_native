@@ -8,6 +8,8 @@ export default ForgettonPassword = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { state, putrevorypass, getlogindata } = useContext(Context);
+  
+  //For the Recovery of the user Password
 
   function checkuser() {
     for (var i = 0; i < state.length; i++) {
