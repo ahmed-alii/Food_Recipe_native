@@ -2,6 +2,9 @@ import React, { useState } from "react";
 const UserLogContext = React.createContext();
 
 export const UserLogProvider = ({ children }) => {
+  
+ //For making the data availble in favrouite screen and auto login
+  
   const [id, setid] = useState(-1);
   const [type, settype] = useState("");
 
