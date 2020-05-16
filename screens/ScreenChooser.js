@@ -26,6 +26,10 @@ const Stack = createStackNavigator();
 export default ScreenChooser = ({ navigation }) => {
   const [loggedIn, setLoggedin] = useState();
   const value = { loggedIn, setLoggedin };
+  
+  //This File is used show the login state 
+  //If login state is false it will render to Login Screen for user login else to Profile Screen to show user detail
+  
   useEffect(() => {
     AsyncStorage.getItem("DataKey").then((value) => {
       setLoggedin(JSON.parse(value).LogStatus);
