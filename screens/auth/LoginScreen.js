@@ -31,6 +31,8 @@ function Login({ navigation, firebase }) {
   const { data1, data2 } = useContext(userlogcontext);
   const [id, setid] = data1;
   const [type, settype] = data2;
+  
+  //For the Login Screen to login in the app
 
   function goToSignup() {
     return navigation.navigate("Register");
@@ -49,7 +51,9 @@ function Login({ navigation, firebase }) {
       setPasswordVisibility(!passwordVisibility);
     }
   }
-
+  
+  //Handel the check that login data is correct
+  
   async function handleOnLogin(values, actions) {
     var check = false;
     for (var i = 0; i < state.length; i++) {
