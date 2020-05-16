@@ -11,6 +11,8 @@ import { ListItem } from "react-native-elements";
 
 export default list = ({ navigation, route }) => {
   console.disableYellowBox = true;
+  //This File is used to render the food list of the chiefs
+  
   return (
     <View>
       <Text style={styles.title}>Food List</Text>
