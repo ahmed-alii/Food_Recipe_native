@@ -7,6 +7,9 @@ import ResetPassword from "../screens/auth/ResetPassword";
 const Stack = createStackNavigator();
 
 export default function AuthNavigation() {
+  
+  //For the Navigation between the Login Screen to Registration or Recovery Screen
+  
   return (
     <Stack.Navigator>
       <Stack.Screen name="Login" component={LoginScreen} />
