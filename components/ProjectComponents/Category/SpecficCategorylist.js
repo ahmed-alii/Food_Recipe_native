@@ -18,6 +18,9 @@ import {
 } from "@expo/vector-icons";
 
 export default ({ navigation, route }) => {
+  
+  //This File is used to render the list of the Specfic Category 
+  
   const { state, getcatdata } = useContext(Context);
   const [Ainemate, setanimate] = useState();
   console.disableYellowBox = true;
