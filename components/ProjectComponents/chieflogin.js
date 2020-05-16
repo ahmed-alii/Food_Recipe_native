@@ -13,6 +13,8 @@ export default ({navigation, route}) => {
   const [Icheck, setIcheck] = useState(false);
   const [rdata, setrdata] = useState();
 
+  //This File is Contain the UI of Chief From the Chief Screen
+  
   console.disableYellowBox = true;
 
   useEffect(() => {
