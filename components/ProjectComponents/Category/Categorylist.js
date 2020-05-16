@@ -3,6 +3,9 @@ import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {Entypo, FontAwesome5, Ionicons, MaterialCommunityIcons,} from "@expo/vector-icons";
 
 export default list = ({navigation}) => {
+  
+  //This File contain the Short UI of the Category menu for accessing the Specfic Category
+  
   console.disableYellowBox = true;
   return (
       <View style={{flex: 1}}>
