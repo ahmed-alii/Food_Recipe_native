@@ -9,6 +9,10 @@ import { Body, Card, CardItem, Icon, Left, Right } from "native-base";
 
 export default ({ navigation, route }) => {
   console.log("#############################################");
+  
+  
+  //This File Contain only the UI of the Chief when naivigated from Chief tAB
+  
   const { state, getSingleuserdata } = useContext(Context);
   const [Ainemate, setanimate] = useState();
   const cid = route.params.cid;
